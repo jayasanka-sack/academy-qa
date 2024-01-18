@@ -4,6 +4,7 @@ const BMICalculator = () => {
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [bmi, setBMI] = useState(null);
+  const [bmiCategory, setBmiCategory] = useState(null);
 
   const calculateBMI = () => {
     const weightInKg = parseFloat(weight);
@@ -15,6 +16,17 @@ const BMICalculator = () => {
     }
 
     const bmiValue = (weightInKg / (heightInM * heightInM)).toFixed(1);
+
+    let bmiCategoryValue = '';
+    if (bmiValue < 18.5) {
+      bmiCategoryValue = 'Underweight';
+    } else if (bmiValue >= 18.5 && bmiValue <= 24.9) {
+      bmiCategoryValue = 'Normal weight';
+    } else {
+      bmiCategoryValue = 'Overweight';
+    }
+
+    setBmiCategory(`your bmi category is: ${bmiCategoryValue}`);
     setBMI(bmiValue);
   };
 
@@ -39,6 +51,7 @@ const BMICalculator = () => {
       {bmi !== null && (
         <div>
           <h3>Your BMI is: {bmi}</h3>
+          <h3>{bmiCategory}</h3>
         </div>
       )}
     </div>
