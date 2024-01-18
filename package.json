@@ -12,12 +12,17 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "*"
+    "@babel/plugin-proposal-private-property-in-object": "*",
+    "@playwright/test": "^1.41.0",
+    "dotenv": "^16.3.1",
+    "playwright": "^1.41.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:e2e": "playwright test --headed",
+    "test:e2e:ci": "playwright test --headed",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
