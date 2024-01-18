@@ -8,10 +8,20 @@ const BMICalculator = () => {
 
   const calculateBMI = () => {
     const weightInKg = parseFloat(weight);
-    const heightInM = parseFloat(height) / 100; // Convert height from cm to meters
+    const heightInM = parseFloat(height) / 100;
 
     const bmiValue = (weightInKg / (heightInM * heightInM)).toFixed(1);
+    let bmiCategory = '';
 
+    if (bmiValue < 18.5) {
+      bmiCategory = 'Underweight';
+    } else if(bmiValue >= 18.5 && bmiValue <= 24.9) {
+      bmiCategory ="Normal weight";
+    } else {
+      bmiCategory = 'Overweight';
+    }
+
+    setBmiCategory(bmiCategory)
     setBMI(bmiValue);
   };
 
@@ -36,7 +46,7 @@ const BMICalculator = () => {
       {bmi !== null && (
         <div>
           <h3>Your BMI is: {bmi}</h3>
-          <h3>{bmiCategory}</h3>
+          <h3>Your BMI category is: {bmiCategory}</h3>
         </div>
       )}
     </div>
