@@ -17,16 +17,6 @@ const BMICalculator = () => {
 
     const bmiValue = (weightInKg / (heightInM * heightInM)).toFixed(1);
 
-    let bmiCategoryValue = '';
-    if (bmiValue < 18.5) {
-      bmiCategoryValue = 'Underweight';
-    } else if (bmiValue >= 18.5 && bmiValue <= 24.9) {
-      bmiCategoryValue = 'Normal weight';
-    } else {
-      bmiCategoryValue = 'Overweight';
-    }
-
-    setBmiCategory(`your bmi category is: ${bmiCategoryValue}`);
     setBMI(bmiValue);
   };
 
