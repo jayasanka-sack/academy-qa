@@ -10,11 +10,6 @@ const BMICalculator = () => {
     const weightInKg = parseFloat(weight);
     const heightInM = parseFloat(height) / 100; // Convert height from cm to meters
 
-    if (isNaN(weightInKg) || isNaN(heightInM) || heightInM <= 0) {
-      alert('Please enter valid weight and height values.');
-      return;
-    }
-
     const bmiValue = (weightInKg / (heightInM * heightInM)).toFixed(1);
 
     setBMI(bmiValue);
